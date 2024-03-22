@@ -1,6 +1,38 @@
-json sorce:
+json sorce line:
 
 {"app":{"class_model":["work_class","function","setings"],"page_view":{"0":"page_class","template":{"design":["css","js"]}},"work_controller":{"work":{"0":"user","1":"admin","auth":[]},"test":[]}},"images":[],"css":[],"js":[]}
+
+json structure print:
+
+{
+    "app": {
+        "class_model": [
+            "work_class",
+            "function",
+            "setings"
+        ],
+        "page_view": {
+            "0": "page_class",
+            "template": {
+                "design": [
+                    "css",
+                    "js"
+                ]
+            }
+        },
+        "work_controller": {
+            "work": {
+                "0": "user",
+                "1": "admin",
+                "auth": []
+            },
+            "test": []
+        }
+    },
+    "images": [],
+    "css": [],
+    "js": []
+}
 
 array sorce:
 
