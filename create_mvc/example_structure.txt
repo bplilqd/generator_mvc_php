@@ -1,4 +1,30 @@
-json sorce line:
+how will be look structure dirs after creating:
+
+├── app
+│   ├── class_model
+│   │   ├── function
+│   │   │   └── function.php
+│   │   ├── setings
+│   │   │   ├── config.php
+│   │   │   └── constant.php
+│   │   └── work_class
+│   ├── page_view
+│   │   ├── page_class
+│   │   └── template
+│   │       └── design
+│   │           ├── css
+│   │           └── js
+│   └── work_controller
+│       ├── test
+│       └── work
+│           ├── admin
+│           ├── auth
+│           └── user
+├── css
+├── images
+└── js
+
+use json sorce line:
 
 {"app":{"class_model":["work_class","function","setings"],"page_view":{"0":"page_class","template":{"design":["css","js"]}},"work_controller":{"work":{"0":"user","1":"admin","auth":[]},"test":[]}},"images":[],"css":[],"js":[]}
 
@@ -34,7 +60,7 @@ json structure print:
     "js": []
 }
 
-array sorce:
+or array sorce:
 
 $array['app']['class_model'] = ['work_class', 'function', 'setings'];
 $array['app']['page_view'] = ['page_class', 'template' => ['design' => ['css', 'js']]];
@@ -45,7 +71,7 @@ $array['images'] = [];
 $array['css'] = [];
 $array['js'] = [];
 
-array print structure:
+jast example the array print structure:
 
     [app] => Array
         (
@@ -103,7 +129,7 @@ array print structure:
         (
         )
 
-path example created dirs
+result work create.php this path example created dirs
 
 /home/bplilqd/work/autovector/app (a)
 /home/bplilqd/work/autovector/app/class_model (c) - "restart function" 
