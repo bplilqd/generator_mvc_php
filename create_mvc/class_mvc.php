@@ -8,10 +8,12 @@ class class_mvc
     protected $json;
     protected $array;
     protected $path;
+    protected $separator;
 
     function __construct($json, $path)
     {
         $this->path = $path;
+        $this->separator = defined('DS') ? DS : DIRECTORY_SEPARATOR;
         $this->set_parm($json); // set json
         $this->parse_resource(); // decode json to array for next work
         $str = $this->create_dir($this->array, $this->path);
@@ -37,7 +39,7 @@ class class_mvc
         foreach ($array as $key => $value) {
             if (is_array($value) && $value) {
                 $str .= "\n" . $path . '/' . $key . ' (a)';
-                mkdir($path . DS . $key, 0755);
+                $this->ensure_directory($path . $this->separator . $key);
 
                 // if arr to parse for foreach
                 foreach ($value as $key2 => $value2) {
@@ -45,25 +47,32 @@ class class_mvc
                     // don't array
                     if (!is_array($value2) && $value2) {
                         $str .= "\n" . $path . '/' . $key . '/' . $value2 . ' (b)';
-                        mkdir($path . DS . $key . DS . $value2, 0755);
+                        $this->ensure_directory($path . $this->separator . $key . $this->separator . $value2);
                     } else {
 
                         // repost this function
                         $str .= "\n" . $path . '/' . $key . '/' . $key2 . ' (c) - "restart function" ';
-                        mkdir($path . DS . $key . DS . $key2, 0755);
+                        $this->ensure_directory($path . $this->separator . $key . $this->separator . $key2);
                         $str .= $this->create_dir($value2, $path . '/' . $key . '/' . $key2);
                     }
                 }
             } else {
                 if ($value) {
                     $str .= "\n" . $path . '/' . $value . ' (d)';
-                    mkdir($path . DS . $value, 0755);
+                    $this->ensure_directory($path . $this->separator . $value);
                 } else {
                     $str .= "\n" . $path . '/' . $key . ' (e)';
-                    mkdir($path . DS . $key, 0755);
+                    $this->ensure_directory($path . $this->separator . $key);
                 }
             }
         }
         return $str;
+    }
+
+    protected function ensure_directory($directory)
+    {
+        if (!is_dir($directory)) {
+            mkdir($directory, 0755, true);
+        }
     }
 }

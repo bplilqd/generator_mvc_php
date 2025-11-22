@@ -21,7 +21,7 @@ $json_sorce = '
         "class_model": [
             "work_class",
             "function",
-            "setings"
+            "settings"
         ],
         "page_view": {
             "0": "page_class",
