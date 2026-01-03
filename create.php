@@ -49,4 +49,4 @@ $json_sorce = '
 
 // create dirs
 $json = new arr_to_json_for_mvc($array);
-$mvc = new class_mvc($json->json, $path);
+$mvc = new class_mvc($json->json, PATH);
