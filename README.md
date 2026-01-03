@@ -18,7 +18,7 @@ cd my_project
 git clone git@github.com:user/generator_mvc_php.git
 cd generator_mvc_php
 
-# Зпустите файл create.php
+# Запустите файл create.php
 php create.php
 cd ..
 
@@ -32,26 +32,63 @@ how will be look structure dirs after creating:
 
 ```text
 ├── app
-│   ├── class_model
-│   │   ├── function
-│   │   │   └── function.php
-│   │   ├── settings
-│   │   │   ├── config.php
-│   │   │   └── constant.php
-│   │   └── work_class
-│   ├── page_view
-│   │   ├── page_class
-│   │   └── template
-│   │       └── design
-│   │           ├── css
-│   │           └── js
-│   └── work_controller
-│       ├── test
-│       └── work
-│           ├── admin
-│           ├── auth
-│           └── user
+│   ├── class_model
+│   │   ├── function
+│   │   │   └── function.php
+│   │   ├── settings
+│   │   │   ├── config.php
+│   │   │   └── constant.php
+│   │   └── work_class
+│   ├── page_view
+│   │   ├── page_class
+│   │   └── template
+│   │       └── design
+│   │           ├── css
+│   │           └── js
+│   └── work_controller
+│       ├── test
+│       └── work
+│           ├── admin
+│           ├── auth
+│           └── user
 ├── css
 ├── images
 └── js
+```
+## Примеры структуры в массиве $array в файле create.php могут быть разными и на ваше усмотрение, например так: 
+```php
+$structure = [
+    'app/' => [
+        'model/' => [
+            'work_class/',
+            'function/' => [
+                'function.php'
+            ],
+            'settings/' => [
+                'config.php',
+                'constant.php'
+            ]
+        ],
+        'view/' => [
+            'page_class/',
+            'template/' => [
+                'design/' => [
+                    'css/',
+                    'js/'
+                ]
+            ]
+        ],
+        'controller/' => [
+            'work/' => [
+                'admin/',
+                'auth/',
+                'user/'
+            ],
+            'test/'
+        ]
+    ],
+    'css/',
+    'images/',
+    'js/'
+];
 ```
