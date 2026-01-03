@@ -55,7 +55,7 @@ how will be look structure dirs after creating:
 ├── images
 └── js
 ```
-## Примеры структуры в массиве $array в файле create.php могут быть разными и на ваше усмотрение, например так: 
+### Примеры структуры в массиве $array в файле create.php могут быть разными и на ваше усмотрение, например так: 
 ```php
 $structure = [
     'app/' => [
